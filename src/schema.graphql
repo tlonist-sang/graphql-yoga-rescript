@@ -1,0 +1,8 @@
+type T_WIKI_CATG1 {
+  WC_CD: String!
+  WC_NM: String
+}
+
+type Query {
+  categories: [T_WIKI_CATG1]
+}

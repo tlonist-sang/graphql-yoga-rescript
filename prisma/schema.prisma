@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model T_FARM_CATG {
+  FC_CD       String  @default("") @id
+  FC_DEPTH    Int
+  FC_NM       String
+  FC_DESC     String?
+  FC_IMG_PATH String?
+  FC_USE_YN   String
+  FC_RGST_YMD String
+  FC_RGST_HIS String
+  FC_RGSTR_ID String
+  FC_RGSTR_NM String
+  FC_MOD_YMD  String
+  FC_MOD_HIS  String
+  FC_MODR_ID  String
+  FC_MODR_NM  String
+}
+
+model T_WIKI {
+  WK_SEQ          Int     @default(autoincrement()) @id
+  WK_CATG_CD      String? @default("0000")
+  WK_FARM_CATG_CD String? @default("000000")
+  WK_TTL          String
+  WK_CONT         String?
+  WK_MEDIA_TP     String? @default("0")
+  WK_VOD_URL      String?
+  WK_TAG          String?
+  WK_STRT_YMD     String?
+  WK_END_YMD      String?
+  WK_STRT_YMD1    String?
+  WK_END_YMD1     String?
+  WK_STRT_YMD2    String?
+  WK_END_YMD2     String?
+  WK_STRT_YMD3    String?
+  WK_END_YMD3     String?
+  WK_STRT_YMD4    String?
+  WK_END_YMD4     String?
+  WK_USER_REQ_YN  String
+  WK_RGST_YMD     String
+  WK_RGST_HIS     String
+  WK_RGSTR_ID     String
+  WK_RGSTR_NM     String
+  WK_MOD_YMD      String
+  WK_MOD_HIS      String
+  WK_MODR_ID      String
+  WK_MODR_NM      String
+}
+
+model T_WIKI_ATCH {
+  WKA_SEQ       Int    @default(autoincrement()) @id
+  WK_SEQ        Int
+  WKA_FILE_PATH String
+  WKA_ORG_NM    String @default("-")
+}
+
+model T_WIKI_CATG {
+  WC_CD       String  @id
+  WC_NM       String
+  WC_DESC     String?
+  WC_DEPTH    Int
+  WC_RGST_YMD String
+  WC_RGST_HIS String
+  WC_RGSTR_ID String
+  WC_RGSTR_NM String
+  WC_MOD_YMD  String
+  WC_MOD_HIS  String
+  WC_MODR_ID  String
+  WC_MODR_NM  String
+}
+
+model T_WIKI_CATG1 {
+  WC_CD       String  @id
+  WC_NM       String
+  WC_DESC     String?
+  WC_RGST_YMD String
+  WC_RGST_HIS String
+  WC_RGSTR_ID String
+  WC_RGSTR_NM String
+  WC_MOD_YMD  String
+  WC_MOD_HIS  String
+  WC_MODR_ID  String
+  WC_MODR_NM  String
+}
+
+model T_WIKI_CATG2 {
+  WC_CD       String  @id
+  WC_NM       String
+  WC_DESC     String?
+  WC_RGST_YMD String
+  WC_RGST_HIS String
+  WC_RGSTR_ID String
+  WC_RGSTR_NM String
+  WC_MOD_YMD  String
+  WC_MOD_HIS  String
+  WC_MODR_ID  String
+  WC_MODR_NM  String
+}
+
+model T_WIKI_DUMMY {
+  WK_SEQ          Int     @default(autoincrement()) @id
+  WK_CATG_CD      String
+  WK_FARM_CATG_CD String?
+  WK_TTL          String
+  WK_CONT         String?
+  WK_MEDIA_TP     String?
+  WK_VOD_URL      String?
+  WK_TAG          String?
+  WK_STRT_YMD     String?
+  WK_END_YMD      String?
+  WK_RGST_YMD     String
+  WK_RGST_HIS     String
+  WK_RGSTR_ID     String
+  WK_RGSTR_NM     String
+  WK_MOD_YMD      String
+  WK_MOD_HIS      String
+  WK_MODR_ID      String
+  WK_MODR_NM      String
+}
+
+model T_WIKI_IMG {
+  WKI_SEQ      Int    @default(autoincrement()) @id
+  WK_SEQ       Int
+  WKI_IMG_PATH String
+}
+
+model T_WIKI_REQ {
+  WKR_SEQ          Int     @default(autoincrement()) @id
+  WKR_CATG_CD      String? @default("0000")
+  WKR_FARM_CATG_CD String?
+  WKR_KWD          String?
+  WKR_CFM_YN       String
+  WKR_RGST_YMD     String
+  WKR_RGST_HIS     String
+  fkey             String
+}
