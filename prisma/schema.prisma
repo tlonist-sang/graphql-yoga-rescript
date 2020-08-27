@@ -5,7 +5,8 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url = "${URL}"
+  // url      = env("DATABASE_URL")
 }
 
 model T_FARM_CATG {

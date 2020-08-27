@@ -3,5 +3,10 @@
 
 
 type Query {
-  ok: Boolean!
+  categories: [T_WIKI_CATG1!]!
+}
+
+type T_WIKI_CATG1 {
+  WC_CD: String!
+  WC_NM: String!
 }
