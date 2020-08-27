@@ -12,11 +12,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@nexus/schema": "^0.15.0",
     "bs-platform": "^8.2.0"
   },
   "dependencies": {
     "@prisma/cli": "^2.4.1",
     "@prisma/client": "^2.4.1",
-    "graphql-yoga": "^1.18.3"
+    "graphql-yoga": "^1.18.3",
+    "nexus": "^0.26.1",
+    "nexus-plugin-prisma": "^0.17.0"
   }
 }

@@ -1,5 +1,4 @@
-open Prisma
 
-let prisma = prismaClient()
-
-let prismaContext: Prisma.context = { prisma: prisma }
+let prisma = Prisma.prismaClient()
+let prismaContext: Prisma.contextType = { prisma: prisma }
+let nexusSchema: Nexus.schemaType = Nexus.schema

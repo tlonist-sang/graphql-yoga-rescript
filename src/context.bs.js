@@ -2,6 +2,7 @@
 'use strict';
 
 var Client = require("@prisma/client");
+var Nexus$GraphqlYogaRescript = require("./bindings/Nexus.bs.js");
 
 var prisma = new Client.PrismaClient();
 
@@ -9,6 +10,9 @@ var prismaContext = {
   prisma: prisma
 };
 
+var nexusSchema = Nexus$GraphqlYogaRescript.schema;
+
 exports.prisma = prisma;
 exports.prismaContext = prismaContext;
+exports.nexusSchema = nexusSchema;
 /* prisma Not a pure module */

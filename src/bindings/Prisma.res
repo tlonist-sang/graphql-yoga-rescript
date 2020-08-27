@@ -1,9 +1,6 @@
-module Prisma = {
-  type prisma
-  type context = {
-    prisma: prisma
-  }
+type prisma 
+type contextType = {
+  prisma: prisma
 }
-
 @bs.new @bs.module("@prisma/client")
-external prismaClient: unit => Prisma.prisma = "PrismaClient"
+external prismaClient: unit => prisma = "PrismaClient"

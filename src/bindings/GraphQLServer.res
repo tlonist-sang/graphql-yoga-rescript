@@ -1,7 +1,10 @@
+open Prisma
 module GraphQL = {
     type server
     type resolvers
-    type context
+    type context = {
+        prisma: Prisma.prisma
+    }
     type config<'contextType> = {
         typeDefs: string
         resolvers: unit => unit
@@ -12,8 +15,14 @@ module GraphQL = {
     }
 }
 
+type config<'schema, 'context> = {
+    schema: 'schema
+    context: 'context
+}
+type server
+
 @bs.new @bs.module("graphql-yoga")
-external graphQLServer: GraphQL.config<'contextType>=>GraphQL.server = "GraphQLServer"
+external graphQLServer: config<'schema, 'context> => server = "GraphQLServer"
 
 @bs.send
-external start: (GraphQL.server, unit => unit) => unit = "start"
+external start: (server, unit => unit) => unit = "start"
